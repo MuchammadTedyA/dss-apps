@@ -20,7 +20,10 @@
                         <!-- <a href="javascript:void(0)" class="nav-link" @click="logout">Logout</a> -->
                     </li>
                 </ul>
-                <div class="dropdown-center">
+                <div v-if="store.token==''">
+                    <router-link class="btn btn-light" to="/login">Login</router-link>
+                </div>
+                <div class="dropdown-center" v-else>
                     <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="./../../assets/logo.png" width="30" alt="">
                         Nama Akun
@@ -39,3 +42,15 @@
     </header>
     
 </template>
+
+<script>
+import {store} from '../../assets/js/store.js'
+
+export default{
+    data(){
+        return{
+            store
+        }
+    }
+}
+</script>
