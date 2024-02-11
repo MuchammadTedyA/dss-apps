@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
+import Security from "@/assets/js/security";
+
 import HomePage from '../views/HomePage.vue'
 import ApisMenu from '../views/ApisMenu.vue'
 import DocsMenu from '../views/DocsMenu.vue'
@@ -29,7 +31,7 @@ const routes = [
 
 const router = createRouter({history:createWebHistory(), routes})
 router.beforeEach(() => {
-    // to and from are both route objects. must call `next`.
+    Security.checkToken();
 })
 
 export default router
